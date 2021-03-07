@@ -24,8 +24,15 @@ class UsuarioController extends Controller
             $usuario->cui = $data['cui'];
             $usuario->fecha_reg = date("Y-m-d");
             $usuario->save();
+            return response()->json([
+                "status" => 200,
+                "message" => "Puede iniciar"
+            ],200);
         } else {
-            return "no son iguales";
+            return response()->json([
+                "status" => 500,
+                "message" => "No Puede iniciar"
+            ], 500);
         }
     }
 }
